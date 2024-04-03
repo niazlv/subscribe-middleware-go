@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "56792:56792"
+    volumes:
+      - ./storage:/app/storage
+    environment:
+      - DATABASE_PATH=/app/storage/catalog.db
+
+volumes:
+  storage:
