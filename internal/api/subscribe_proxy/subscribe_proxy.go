@@ -31,6 +31,7 @@ func getSubscribe(c *gin.Context) {
 				[]byte("Error!"))
 			return
 		}
+		// TODO: implement handle "error"
 		c.Data(http.StatusInternalServerError, "text/plain; charset=utf-8", []byte(""))
 		log.Panic(err)
 		return
@@ -38,7 +39,10 @@ func getSubscribe(c *gin.Context) {
 
 	encodedCombini, err := MergeSubscribes(db, db_subscribe)
 	if err != nil {
+		// TODO: implement handle "error"
+		c.Data(http.StatusInternalServerError, "text/plain; charset=utf-8", []byte(""))
 		log.Panic(err)
+		return
 	}
 
 	c.Data(http.StatusOK,
