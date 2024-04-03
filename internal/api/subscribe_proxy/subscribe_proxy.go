@@ -26,7 +26,8 @@ func getSubscribe(c *gin.Context) {
 	db_subscribe, err := database.ReadSubscribeByID(db, c.Param("id"))
 	if err != nil {
 		if err == sql.ErrNoRows {
-			c.Data(http.StatusBadRequest, "text/plain; charset=utf-8",
+			// http.StatusBadRequest was changed to http.StatusNotFound because nginx redirect 404 error to original server
+			c.Data(http.StatusNotFound, "text/plain; charset=utf-8",
 				[]byte("Error!"))
 			return
 		}

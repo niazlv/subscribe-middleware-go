@@ -9,8 +9,6 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-var secretPath = "/noncesub/"
-
 var db *sql.DB
 
 func main() {
