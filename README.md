@@ -1,6 +1,6 @@
-# subscrbe-middleware-go
+# subscribe-middleware-go
 
-subscrbe-middleware-go is a project that implements a proxying (and more) "subscription" method for xray, v2ray systems, and panels based on them (x-ui, 3x-ui). This is a personal project created to fulfill specific needs.
+subscribe-middleware-go is a project that implements a proxying (and more) "subscription" method for xray, v2ray systems, and panels based on them (x-ui, 3x-ui). This is a personal project created to fulfill specific needs.
 
 ## Features
 
@@ -22,16 +22,16 @@ subscrbe-middleware-go is a project that implements a proxying (and more) "subsc
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/your-username/subscrbe-middleware-go.git
+git clone https://github.com/niazlv/subscribe-middleware-go.git
 ```
 2. Navigate to the project directory:
 ```bash
-cd subscrbe-middleware-go
+cd subscribe-middleware-go
 ```
 3. Build the project and run:
 ```bash
 go mod download
-go build -o main ./cmd/subscrbe-middleware-go/main.go
+go build -o main ./cmd/subscribe-middleware-go/main.go
 ./main
 ```
 or using docker:

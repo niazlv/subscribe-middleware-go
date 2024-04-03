@@ -20,7 +20,7 @@ COPY . .
 
 # Собираем приложение с поддержкой CGO
 ENV CGO_ENABLED=1
-RUN go build -o main ./cmd/subscrbe-middleware-go/main.go 
+RUN go build -o main ./cmd/subscribe-middleware-go/main.go 
 
 
 # стадия 2. Запуск в отдельном контейнере

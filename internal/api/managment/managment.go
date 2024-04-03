@@ -6,7 +6,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	"github.com/niazlv/subscrbe-middleware-go/internal/database"
+	"github.com/niazlv/subscribe-middleware-go/internal/database"
 )
 
 func Setup(app *gin.RouterGroup) {

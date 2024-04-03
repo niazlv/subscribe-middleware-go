@@ -1,4 +1,4 @@
-module github.com/niazlv/subscrbe-middleware-go
+module github.com/niazlv/subscribe-middleware-go
 
 go 1.21.7
 
