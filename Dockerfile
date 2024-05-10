@@ -3,14 +3,15 @@ FROM golang:1.21-alpine as builder
 
 # Ставим какие-либо зависимости системы
 # Устанавливаем необходимые зависимости для CGO
-RUN apk add --no-cache gcc musl-dev
+# RUN apk add --no-cache gcc musl-dev
+RUN apk add --no-cache gcc=13.2.1_git20231014-r0 musl-dev=1.2.4_git20230717-r4
 
 # Устанавливаем рабочую директорию внутри контейнера
 WORKDIR /build
 
 # Копируем модули Go(отдельно от исходников, чтобы лучше кешировалось и каждый раз по новой не обновлялось)
-ADD go.mod .
-ADD go.sum .
+COPY go.mod .
+COPY go.sum .
 
 # Скачиваем зависимости уже GO
 RUN go mod download
