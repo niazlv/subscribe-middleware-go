@@ -13,6 +13,7 @@ services:
       - ./storage:/app-data/storage
     environment:
       - DATABASE_PATH=/app/storage/catalog.db
-
+      - UID=1000
+      - GID=1000
 volumes:
   storage:

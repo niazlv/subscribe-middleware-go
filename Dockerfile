@@ -30,8 +30,12 @@ FROM alpine:3.14
 # Создаем директорию, в которой в последующем будем работать и хранить бинарник
 RUN mkdir /app
 
+# костыль доступа к storage host машины
+ARG UID=1000
+ARG GID=1000
+
 # создаем пользователя, под которым будет выполняться код и его папку, в которой он сможет писать
-RUN adduser -D appuser && mkdir /app-data && chown -R appuser /app-data
+RUN adduser -D --gid ${GID} --uid ${UID} appuser && mkdir /app-data && chown -R appuser /app-data
 
 # создаем папку для работы программы(chown можно оптимизировать с прошлой командой)
 RUN mkdir /app-data/storage && chown -R appuser /app-data/storage
