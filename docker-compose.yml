@@ -1,14 +1,15 @@
-version: '3'
+# is deprecated
+# version: '3'
 
 services:
-  app:
+  server:
     build:
       context: .
       dockerfile: Dockerfile
     ports:
       - "56792:56792"
     volumes:
-      - ./storage:/app/storage
+      - ./storage:/app-data/storage
     environment:
       - DATABASE_PATH=/app/storage/catalog.db
 
