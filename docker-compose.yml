@@ -8,6 +8,7 @@ services:
       dockerfile: Dockerfile
     ports:
       - "56792:56792"
+    restart: unless-stopped
     volumes:
       - ./storage:/app-data/storage
     environment:
