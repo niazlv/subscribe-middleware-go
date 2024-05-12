@@ -35,7 +35,7 @@ ARG UID=1000
 ARG GID=1000
 
 # создаем пользователя, под которым будет выполняться код и его папку, в которой он сможет писать
-RUN adduser -D --gid ${GID} --uid ${UID} appuser && mkdir /app-data && chown -R appuser /app-data
+RUN adduser -D -g ${GID} -u ${UID} appuser && mkdir /app-data && chown -R appuser /app-data
 
 # создаем папку для работы программы(chown можно оптимизировать с прошлой командой)
 RUN mkdir /app-data/storage && chown -R appuser /app-data/storage
