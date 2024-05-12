@@ -93,14 +93,23 @@ func MergeSubscribes(db *sql.DB, sub database.Subscibe, lastMerged ...string) (s
 	} else if len(lastMerged) > 1 {
 		return "", fmt.Errorf("ожидается только один параметр lastMerged")
 	}
-
-	data1, err := externalGetHttp(sub.Subscribe1)
-	if err != nil {
-		return "", err
+	var data1 string
+	var err error
+	data1, err = "", nil
+	if sub.Subscribe1 != "" {
+		data1, err = externalGetHttp(sub.Subscribe1)
+		if err != nil {
+			return "", err
+		}
 	}
-	data2, err := externalGetHttp(sub.Subscribe2)
-	if err != nil {
-		return "", err
+
+	var data2 string
+	data2, err = "", nil
+	if sub.Subscribe2 != "" {
+		data2, err = externalGetHttp(sub.Subscribe2)
+		if err != nil {
+			return "", err
+		}
 	}
 
 	merged, err := MergeSubscribe(data1, data2)
